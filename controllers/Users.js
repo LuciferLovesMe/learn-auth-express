@@ -63,6 +63,36 @@ export const updateUser = async (req, res) => {
   }
   if (confirmPassword !== password)
     return res.status(400).json({ msg: "Konfirmasi password salah" });
+
+  await Users.update(
+    {
+      name: name,
+      email: email,
+      password: hashPasword,
+      role: role,
+    },
+    {
+      where: {
+        id: user.id,
+      },
+    }
+  );
+
+  res.status(201).json({ msg: "User berhasil diubah" });
 };
 
-export const deleteUser = (req, res) => {};
+export const deleteUser = async (req, res) => {
+  const user = await Users.findOne({
+    where: {
+      UUID: req.params.id,
+    },
+  });
+  if (!user) return res.status(404).json({ msg: "User tidak ditemukan" });
+  await Users.destroy({
+    where: {
+      id: user.id,
+    },
+  });
+
+  res.status(201).json({ msg: "User berhasil dihapus" });
+};

@@ -3,12 +3,29 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-    "name": "Abeemm",
+    "name": "Abeemmss",
+    "email": "abemss666@mail.com",
+    "password": "1",
+    "confirmPassword": "1",
+    "role": "admin"
+}
+
+###
+// Update User
+PATCH  http://localhost:5000/users/62667e65-0c80-4514-82e8-7364b898efbc
+Content-Type: application/json
+
+{
+    "name": "Abeemmss UPDATED",
     "email": "abem666@mail.com",
     "password": "1",
     "confirmPassword": "1",
     "role": "admin"
 }
+
+###
+// Update User
+DELETE   http://localhost:5000/users/62667e65-0c80-4514-82e8-7364b898efbc
 
 ###
 # Get All Users 
