@@ -1,0 +1,19 @@
+// Create User
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "Abeemm",
+    "email": "abem666@mail.com",
+    "password": "1",
+    "confirmPassword": "1",
+    "role": "admin"
+}
+
+###
+# Get All Users 
+GET http://localhost:5000/users
+
+###
+# Get All Users by uuid
+GET http://localhost:5000/users/41a5d714-2953-428a-b374-ded480eec66c
