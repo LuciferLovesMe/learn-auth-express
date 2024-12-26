@@ -34,3 +34,21 @@ GET http://localhost:5000/users
 ###
 # Get All Users by uuid
 GET http://localhost:5000/users/41a5d714-2953-428a-b374-ded480eec66c
+
+###
+// Login
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "abemss666@mail.com",
+    "password": "1"
+}
+
+###
+// Me
+GET  http://localhost:5000/me
+
+###
+// Logout
+DELETE http://localhost:5000/logout
