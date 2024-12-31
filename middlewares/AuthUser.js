@@ -26,7 +26,7 @@ export const adminOnly = async (req, res, next) => {
   });
 
   if (!user) return res.status(404).json({ msg: "User tidak ditemukan" });
-  if (!user.role !== "admin")
+  if (user.role !== "admin")
     return res.status(403).json({ msg: "Access forbidden" });
 
   next();
