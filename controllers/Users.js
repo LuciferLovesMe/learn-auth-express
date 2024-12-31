@@ -60,9 +60,9 @@ export const updateUser = async (req, res) => {
   if (password === "" || password === null) hashPasword = user.password;
   else {
     hashPasword = await argon2.hash(password);
+    if (confirmPassword !== password)
+      return res.status(400).json({ msg: "Konfirmasi password salah" });
   }
-  if (confirmPassword !== password)
-    return res.status(400).json({ msg: "Konfirmasi password salah" });
 
   await Users.update(
     {
